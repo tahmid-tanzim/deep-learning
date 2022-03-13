@@ -4,3 +4,13 @@ server:
 spring:
   application:
     name: customer
+  datasource:
+    platform: postgres
+    username: root
+    password: covid@19
+    url: jdbc:postgresql://localhost:5432/customer
+    jpa:
+      database: customer
+      hibernate:
+        ddl-auto: update
+      show-sql: 'true'
