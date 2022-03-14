@@ -4,8 +4,8 @@ services:
     container_name: postgres
     image: postgres
     environment:
-      POSTGRES_USER: 'root'
-      POSTGRES_PASSWORD: 'covid@19'
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: covid@19
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
@@ -20,7 +20,7 @@ services:
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin4}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
       - pgadmin:/var/lib/pgadmin

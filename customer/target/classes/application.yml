@@ -5,12 +5,14 @@ spring:
   application:
     name: customer
   datasource:
-    platform: postgres
     username: root
     password: covid@19
     url: jdbc:postgresql://localhost:5432/customer
-    jpa:
-      database: customer
+  jpa:
+    properties:
       hibernate:
-        ddl-auto: update
-      show-sql: 'true'
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: 'true'
