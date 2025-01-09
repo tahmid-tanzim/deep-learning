@@ -42,3 +42,7 @@
 - Projects original 32-bit floating point numbers into lower precision spaces.
 - Quantization-aware training (QAT) learns the quantization scaling factors during training
 - BFLOAT16 in a popular choice
+
+## 3. Efficient multi-GPU compute strategies
+- Distributed Data Parallel (DDP)
+- Fully Sharded Data Parallel (FSDP)
