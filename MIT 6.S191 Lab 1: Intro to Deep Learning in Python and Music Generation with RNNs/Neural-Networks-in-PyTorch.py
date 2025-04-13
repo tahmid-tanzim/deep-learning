@@ -25,14 +25,57 @@ class OurDenseLayer(torch.nn.Module):
         y = torch.sigmoid(z)
         return y
 
+### Defining a model using subclassing ###
+
+class LinearWithSigmoidActivation(torch.nn.Module):
+    def __init__(self, num_inputs, num_outputs):
+        super(LinearWithSigmoidActivation, self).__init__()
+        self.linear = torch.nn.Linear(num_inputs, num_outputs)
+        self.activation = torch.nn.Sigmoid()
+
+    def forward(self, inputs):
+        linear_output = self.linear(inputs)
+        output = self.activation(linear_output)
+        return output
+
 if __name__ == "__main__":
     # Define a layer and test the output!
-    num_inputs = 5
-    num_outputs = 2
+    num_inputs = 2
+    num_outputs = 3
     layer = OurDenseLayer(num_inputs, num_outputs)
-    x_input = torch.tensor([[1, 2.5, 3.75, 4.24, 5.67]])
+    x_input = torch.tensor([[4.56, 5.67]])
     y = layer(x_input)
 
-    print(f"input shape: {x_input.shape}")
-    print(f"output shape: {y.shape}")
-    print(f"output result: {y}")
+    print(f"1. Layer input shape: {x_input.shape}")
+    print(f"1. Layer output shape: {y.shape}")
+    print(f"1. Layer output result: {y}")
+
+    ### Defining a neural network using the PyTorch Sequential API ###
+
+    # define the number of inputs and outputs
+    n_input_nodes = 2
+    n_output_nodes = 3
+
+    # Define the model
+    model = torch.nn.Sequential(
+        torch.nn.Linear(n_input_nodes, n_output_nodes),
+        torch.nn.Sigmoid()
+    )
+
+    # Test the model
+    x_input = torch.tensor([[4.56, 5.67]])
+    y = model(x_input)
+
+    print(f"2. Sequential Model input shape: {x_input.shape}")
+    print(f"2. Sequential Model output shape: {y.shape}")
+    print(f"2. Sequential Model output result: {y}")
+
+    n_input_nodes = 2
+    n_output_nodes = 3
+    model = LinearWithSigmoidActivation(n_input_nodes, n_output_nodes)
+    x_input = torch.tensor([[4.56, 5.67]])
+    y = model(x_input)
+    print(f"3. LinearWithSigmoidActivation Model input shape: {x_input.shape}")
+    print(f"3. LinearWithSigmoidActivationModel output shape: {y.shape}")
+    print(f"3. LinearWithSigmoidActivation Model output result: {y}")
+    
