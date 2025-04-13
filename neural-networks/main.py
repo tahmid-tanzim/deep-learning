@@ -12,8 +12,9 @@ Output as y-axis: 0 <= efficacy <= 1; No ~> 0 & Yes ~> 1
 # class syntax
 class ActivationFunctionType(Enum):
     SIGMOID = "sigmoid"
-    RELU = "ReLU"
+    RELU = "ReLU"  # Rectified Linear Unit
     SOFT_PLUS = "softplus"
+    HYPERBOLIC = "hyperbolic_tangent"
 
 
 def activation_functions(x: float, types: str) -> float:
@@ -25,6 +26,8 @@ def activation_functions(x: float, types: str) -> float:
             y = max(0.0, x)
         case ActivationFunctionType.SOFT_PLUS.value:
             y = math.log(1 + math.exp(x))
+        case ActivationFunctionType.HYPERBOLIC.value:
+            y = (math.exp(x) - math.exp(x * -1)) / (math.exp(x) + math.exp(x * -1))
     return y
 
 

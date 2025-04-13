@@ -46,3 +46,8 @@
 ## 3. Efficient multi-GPU compute strategies
 - Distributed Data Parallel (DDP)
 - Fully Sharded Data Parallel (FSDP)
+
+## 4. Perceptron
+![Perceptron](images/perceptron.png)
+![Multi Output Perceptron](images/multi-output-perceptron.png)
+![Gradient Descent](images/gradient-descent.png)
