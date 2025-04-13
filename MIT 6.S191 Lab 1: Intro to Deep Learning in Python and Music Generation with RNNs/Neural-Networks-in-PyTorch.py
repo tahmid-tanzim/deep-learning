@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 # num_inputs: number of input nodes
 # num_outputs: number of output nodes
 # x: input to the layer
-
 class OurDenseLayer(torch.nn.Module):
     def __init__(self, num_inputs, num_outputs):
         super(OurDenseLayer, self).__init__()
@@ -26,7 +25,6 @@ class OurDenseLayer(torch.nn.Module):
         return y
 
 ### Defining a model using subclassing ###
-
 class LinearWithSigmoidActivation(torch.nn.Module):
     def __init__(self, num_inputs, num_outputs):
         super(LinearWithSigmoidActivation, self).__init__()
@@ -37,6 +35,19 @@ class LinearWithSigmoidActivation(torch.nn.Module):
         linear_output = self.linear(inputs)
         output = self.activation(linear_output)
         return output
+
+### Custom behavior with subclassing nn.Module ###
+class LinearButSometimesIdentity(torch.nn.Module):
+    def __init__(self, num_inputs, num_outputs):
+        super(LinearButSometimesIdentity, self).__init__()
+        self.linear = torch.nn.Linear(num_inputs, num_outputs)
+
+    def forward(self, inputs, isidentity=False):
+        if isidentity:
+            return inputs
+        else:
+            return self.linear(inputs)
+
 
 if __name__ == "__main__":
     # Define a layer and test the output!
@@ -78,4 +89,15 @@ if __name__ == "__main__":
     print(f"3. LinearWithSigmoidActivation Model input shape: {x_input.shape}")
     print(f"3. LinearWithSigmoidActivationModel output shape: {y.shape}")
     print(f"3. LinearWithSigmoidActivation Model output result: {y}")
+
+    # Test the IdentityModel
+    model = LinearButSometimesIdentity(num_inputs=2, num_outputs=3)
+    x_input = torch.tensor([[4.5678, 5.6789]])
+
+    out_with_linear = model(x_input, isidentity=False)
+
+    out_with_identity = model(x_input, isidentity=True)
+
+    print(f"input: {x_input}")
+    print("Network linear output: {}; network identity output: {}".format(out_with_linear, out_with_identity))
     
