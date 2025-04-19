@@ -2,8 +2,8 @@ import torch
 
 # import mitdeeplearning as mdl
 
-import numpy as np
-import matplotlib.pyplot as plt
+# import numpy as np
+# import matplotlib.pyplot as plt
 
 
 ### Defining a dense layer ###
