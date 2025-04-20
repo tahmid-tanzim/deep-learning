@@ -1,5 +1,7 @@
+__pycache__
 venv
 .idea
 .env
 Agentic-RAG-with-Llamaindex/resource/metagpt.pdf
 pytorch-tutorials/data
+pytorch-tutorials/model.pth
