@@ -2,3 +2,4 @@ venv
 .idea
 .env
 Agentic-RAG-with-Llamaindex/resource/metagpt.pdf
+pytorch-tutorials/data
