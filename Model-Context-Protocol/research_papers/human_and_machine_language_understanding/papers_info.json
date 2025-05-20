@@ -1,0 +1,81 @@
+{
+    "2211.01553v1": {
+        "title": "User or Labor: An Interaction Framework for Human-Machine Relationships in NLP",
+        "authors": [
+            "Ruyuan Wan",
+            "Naome Etori",
+            "Karla Badillo-Urquiola",
+            "Dongyeop Kang"
+        ],
+        "summary": "The bridging research between Human-Computer Interaction and Natural Language\nProcessing is developing quickly these years. However, there is still a lack of\nformative guidelines to understand the human-machine interaction in the NLP\nloop. When researchers crossing the two fields talk about humans, they may\nimply a user or labor. Regarding a human as a user, the human is in control,\nand the machine is used as a tool to achieve the human's goals. Considering a\nhuman as a laborer, the machine is in control, and the human is used as a\nresource to achieve the machine's goals. Through a systematic literature review\nand thematic analysis, we present an interaction framework for understanding\nhuman-machine relationships in NLP. In the framework, we propose four types of\nhuman-machine interactions: Human-Teacher and Machine-Learner, Machine-Leading,\nHuman-Leading, and Human-Machine Collaborators. Our analysis shows that the\ntype of interaction is not fixed but can change across tasks as the\nrelationship between the human and the machine develops. We also discuss the\nimplications of this framework for the future of NLP and human-machine\nrelationships.",
+        "pdf_url": "http://arxiv.org/pdf/2211.01553v1",
+        "categories": [
+            "cs.HC"
+        ],
+        "published": "2022-11-03"
+    },
+    "2202.04092v3": {
+        "title": "Machine Explanations and Human Understanding",
+        "authors": [
+            "Chacha Chen",
+            "Shi Feng",
+            "Amit Sharma",
+            "Chenhao Tan"
+        ],
+        "summary": "Explanations are hypothesized to improve human understanding of machine\nlearning models and achieve a variety of desirable outcomes, ranging from model\ndebugging to enhancing human decision making. However, empirical studies have\nfound mixed and even negative results. An open question, therefore, is under\nwhat conditions explanations can improve human understanding and in what way.\nUsing adapted causal diagrams, we provide a formal characterization of the\ninterplay between machine explanations and human understanding, and show how\nhuman intuitions play a central role in enabling human understanding.\nSpecifically, we identify three core concepts of interest that cover all\nexisting quantitative measures of understanding in the context of human-AI\ndecision making: task decision boundary, model decision boundary, and model\nerror. Our key result is that without assumptions about task-specific\nintuitions, explanations may potentially improve human understanding of model\ndecision boundary, but they cannot improve human understanding of task decision\nboundary or model error. To achieve complementary human-AI performance, we\narticulate possible ways on how explanations need to work with human\nintuitions. For instance, human intuitions about the relevance of features\n(e.g., education is more important than age in predicting a person's income)\ncan be critical in detecting model error. We validate the importance of human\nintuitions in shaping the outcome of machine explanations with empirical\nhuman-subject studies. Overall, our work provides a general framework along\nwith actionable implications for future algorithmic development and empirical\nexperiments of machine explanations.",
+        "pdf_url": "http://arxiv.org/pdf/2202.04092v3",
+        "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.CY",
+            "cs.HC"
+        ],
+        "published": "2022-02-08"
+    },
+    "2503.04395v1": {
+        "title": "Shaping Shared Languages: Human and Large Language Models' Inductive Biases in Emergent Communication",
+        "authors": [
+            "Tom Kouwenhoven",
+            "Max Peeperkorn",
+            "Roy de Kleijn",
+            "Tessa Verhoef"
+        ],
+        "summary": "Languages are shaped by the inductive biases of their users. Using a\nclassical referential game, we investigate how artificial languages evolve when\noptimised for inductive biases in humans and large language models (LLMs) via\nHuman-Human, LLM-LLM and Human-LLM experiments. We show that referentially\ngrounded vocabularies emerge that enable reliable communication in all\nconditions, even when humans and LLMs collaborate. Comparisons between\nconditions reveal that languages optimised for LLMs subtly differ from those\noptimised for humans. Interestingly, interactions between humans and LLMs\nalleviate these differences and result in vocabularies which are more\nhuman-like than LLM-like. These findings advance our understanding of how\ninductive biases in LLMs play a role in the dynamic nature of human language\nand contribute to maintaining alignment in human and machine communication. In\nparticular, our work underscores the need to think of new methods that include\nhuman interaction in the training processes of LLMs, and shows that using\ncommunicative success as a reward signal can be a fruitful, novel direction.",
+        "pdf_url": "http://arxiv.org/pdf/2503.04395v1",
+        "categories": [
+            "cs.CL"
+        ],
+        "published": "2025-03-06"
+    },
+    "2104.14102v1": {
+        "title": "Comparing Visual Reasoning in Humans and AI",
+        "authors": [
+            "Shravan Murlidaran",
+            "William Yang Wang",
+            "Miguel P. Eckstein"
+        ],
+        "summary": "Recent advances in natural language processing and computer vision have led\nto AI models that interpret simple scenes at human levels. Yet, we do not have\na complete understanding of how humans and AI models differ in their\ninterpretation of more complex scenes. We created a dataset of complex scenes\nthat contained human behaviors and social interactions. AI and humans had to\ndescribe the scenes with a sentence. We used a quantitative metric of\nsimilarity between scene descriptions of the AI/human and ground truth of five\nother human descriptions of each scene. Results show that the machine/human\nagreement scene descriptions are much lower than human/human agreement for our\ncomplex scenes. Using an experimental manipulation that occludes different\nspatial regions of the scenes, we assessed how machines and humans vary in\nutilizing regions of images to understand the scenes. Together, our results are\na first step toward understanding how machines fall short of human visual\nreasoning with complex scenes depicting human behaviors.",
+        "pdf_url": "http://arxiv.org/pdf/2104.14102v1",
+        "categories": [
+            "cs.AI",
+            "cs.CV",
+            "q-bio.NC"
+        ],
+        "published": "2021-04-29"
+    },
+    "2209.02066v1": {
+        "title": "Trust in Language Grounding: a new AI challenge for human-robot teams",
+        "authors": [
+            "David M. Bossens",
+            "Christine Evers"
+        ],
+        "summary": "The challenge of language grounding is to fully understand natural language\nby grounding language in real-world referents. While AI techniques are\navailable, the widespread adoption and effectiveness of such technologies for\nhuman-robot teams relies critically on user trust. This survey provides three\ncontributions relating to the newly emerging field of trust in language\ngrounding, including a) an overview of language grounding research in terms of\nAI technologies, data sets, and user interfaces; b) six hypothesised trust\nfactors relevant to language grounding, which are tested empirically on a\nhuman-robot cleaning team; and c) future research directions for trust in\nlanguage grounding.",
+        "pdf_url": "http://arxiv.org/pdf/2209.02066v1",
+        "categories": [
+            "cs.AI",
+            "cs.LG",
+            "cs.RO"
+        ],
+        "published": "2022-09-05"
+    }
+}

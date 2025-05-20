@@ -1,0 +1,85 @@
+{
+    "2412.17376v1": {
+        "title": "How Green Can AI Be? A Study of Trends in Machine Learning Environmental Impacts",
+        "authors": [
+            "Cl\u00e9ment Morand",
+            "Anne-Laure Ligozat",
+            "Aur\u00e9lie N\u00e9v\u00e9ol"
+        ],
+        "summary": "The compute requirements associated with training Artificial Intelligence\n(AI) models have increased exponentially over time. Optimisation strategies aim\nto reduce the energy consumption and environmental impacts associated with AI,\npossibly shifting impacts from the use phase to the manufacturing phase in the\nlife-cycle of hardware. This paper investigates the evolution of individual\ngraphics cards production impacts and of the environmental impacts associated\nwith training Machine Learning (ML) models over time. We collect information on\ngraphics cards used to train ML models and released between 2013 and 2023. We\nassess the environmental impacts associated with the production of each card to\nvisualize the trends on the same period. Then, using information on notable AI\nsystems from the Epoch AI dataset we assess the environmental impacts\nassociated with training each system. The environmental impacts of graphics\ncards production have increased continuously. The energy consumption and\nenvironmental impacts associated with training models have increased\nexponentially, even when considering reduction strategies such as location\nshifting to places with less carbon intensive electricity mixes. These results\nsuggest that current impact reduction strategies cannot curb the growth in the\nenvironmental impacts of AI. This is consistent with rebound effect, where the\nefficiency increases fuel the creation of even larger models thereby cancelling\nthe potential impact reduction. Furthermore, these results highlight the\nimportance of considering the impacts of hardware over the entire life-cycle\nrather than the sole usage phase in order to avoid impact shifting. The\nenvironmental impact of AI cannot be reduced without reducing AI activities as\nwell as increasing efficiency.",
+        "pdf_url": "http://arxiv.org/pdf/2412.17376v1",
+        "categories": [
+            "cs.LG",
+            "cs.CY"
+        ],
+        "published": "2024-12-23"
+    },
+    "2307.05494v2": {
+        "title": "Towards Environmentally Equitable AI via Geographical Load Balancing",
+        "authors": [
+            "Pengfei Li",
+            "Jianyi Yang",
+            "Adam Wierman",
+            "Shaolei Ren"
+        ],
+        "summary": "Fueled by the soaring popularity of large language and foundation models, the\naccelerated growth of artificial intelligence (AI) models' enormous\nenvironmental footprint has come under increased scrutiny. While many\napproaches have been proposed to make AI more energy-efficient and\nenvironmentally friendly, environmental inequity -- the fact that AI's\nenvironmental footprint can be disproportionately higher in certain regions\nthan in others -- has emerged, raising social-ecological justice concerns. This\npaper takes a first step toward addressing AI's environmental inequity by\nbalancing its regional negative environmental impact. Concretely, we focus on\nthe carbon and water footprints of AI model inference and propose equity-aware\ngeographical load balancing (GLB) to explicitly address AI's environmental\nimpacts on the most disadvantaged regions. We run trace-based simulations by\nconsidering a set of 10 geographically-distributed data centers that serve\ninference requests for a large language AI model. The results demonstrate that\nexisting GLB approaches may amplify environmental inequity while our proposed\nequity-aware GLB can significantly reduce the regional disparity in terms of\ncarbon and water footprints.",
+        "pdf_url": "http://arxiv.org/pdf/2307.05494v2",
+        "categories": [
+            "cs.AI",
+            "cs.CY"
+        ],
+        "published": "2023-06-20"
+    },
+    "2501.10390v1": {
+        "title": "Towards an Environmental Ethics of Artificial Intelligence",
+        "authors": [
+            "Nynke van Uffelen",
+            "Lode Lauwaert",
+            "Mark Coeckelbergh",
+            "Olya Kudina"
+        ],
+        "summary": "In recent years, much research has been dedicated to uncovering the\nenvironmental impact of Artificial Intelligence (AI), showing that training and\ndeploying AI systems require large amounts of energy and resources, and the\noutcomes of AI may lead to decisions and actions that may negatively impact the\nenvironment. This new knowledge raises new ethical questions, such as: When is\nit (un)justifiable to develop an AI system, and how to make design choices,\nconsidering its environmental impact? However, so far, the environmental impact\nof AI has largely escaped ethical scrutiny, as AI ethics tends to focus\nstrongly on themes such as transparency, privacy, safety, responsibility, and\nbias. Considering the environmental impact of AI from an ethical perspective\nexpands the scope of AI ethics beyond an anthropocentric focus towards\nincluding more-than-human actors such as animals and ecosystems. This paper\nexplores the ethical implications of the environmental impact of AI for\ndesigning AI systems by drawing on environmental justice literature, in which\nthree categories of justice are distinguished, referring to three elements that\ncan be unjust: the distribution of benefits and burdens (distributive justice),\ndecision-making procedures (procedural justice), and institutionalized social\nnorms (justice as recognition). Based on these tenets of justice, we outline\ncriteria for developing environmentally just AI systems, given their ecological\nimpact.",
+        "pdf_url": "http://arxiv.org/pdf/2501.10390v1",
+        "categories": [
+            "cs.CY",
+            "cs.AI"
+        ],
+        "published": "2024-12-19"
+    },
+    "2501.14334v2": {
+        "title": "Exploring the sustainable scaling of AI dilemma: A projective study of corporations' AI environmental impacts",
+        "authors": [
+            "Cl\u00e9ment Desroches",
+            "Martin Chauvin",
+            "Louis Ladan",
+            "Caroline Vateau",
+            "Simon Gosset",
+            "Philippe Cordier"
+        ],
+        "summary": "The rapid growth of artificial intelligence (AI), particularly Large Language\nModels (LLMs), has raised concerns regarding its global environmental impact\nthat extends beyond greenhouse gas emissions to include consideration of\nhardware fabrication and end-of-life processes. The opacity from major\nproviders hinders companies' abilities to evaluate their AI-related\nenvironmental impacts and achieve net-zero targets.\n  In this paper, we propose a methodology to estimate the environmental impact\nof a company's AI portfolio, providing actionable insights without\nnecessitating extensive AI and Life-Cycle Assessment (LCA) expertise. Results\nconfirm that large generative AI models consume up to 4600x more energy than\ntraditional models. Our modelling approach, which accounts for increased AI\nusage, hardware computing efficiency, and changes in electricity mix in line\nwith IPCC scenarios, forecasts AI electricity use up to 2030. Under a high\nadoption scenario, driven by widespread Generative AI and agents adoption\nassociated to increasingly complex models and frameworks, AI electricity use is\nprojected to rise by a factor of 24.4.\n  Mitigating the environmental impact of Generative AI by 2030 requires\ncoordinated efforts across the AI value chain. Isolated measures in hardware\nefficiency, model efficiency, or grid improvements alone are insufficient. We\nadvocate for standardized environmental assessment frameworks, greater\ntransparency from the all actors of the value chain and the introduction of a\n\"Return on Environment\" metric to align AI development with net-zero goals.",
+        "pdf_url": "http://arxiv.org/pdf/2501.14334v2",
+        "categories": [
+            "cs.AI",
+            "cs.CY",
+            "cs.LG"
+        ],
+        "published": "2025-01-24"
+    },
+    "2407.05176v1": {
+        "title": "Towards Socially and Environmentally Responsible AI",
+        "authors": [
+            "Pengfei Li",
+            "Yejia Liu",
+            "Jianyi Yang",
+            "Shaolei Ren"
+        ],
+        "summary": "The sharply increasing sizes of artificial intelligence (AI) models come with\nsignificant energy consumption and environmental footprints, which can\ndisproportionately impact certain (often marginalized) regions and hence create\nenvironmental inequity concerns. Moreover, concerns with social inequity have\nalso emerged, as AI computing resources may not be equitably distributed across\nthe globe and users from certain disadvantaged regions with severe resource\nconstraints can consistently experience inferior model performance.\nImportantly, the inequity concerns that encompass both social and environmental\ndimensions still remain unexplored and have increasingly hindered responsible\nAI. In this paper, we leverage the spatial flexibility of AI inference\nworkloads and propose equitable geographical load balancing (GLB) to fairly\nbalance AI's regional social and environmental costs. Concretely, to penalize\nthe disproportionately high social and environmental costs for equity, we\nintroduce $L_q$ norms as novel regularization terms into the optimization\nobjective for GLB decisions. Our empirical results based on real-world AI\ninference traces demonstrate that while the existing GLB algorithms result in\ndisproportionately large social and environmental costs in certain regions, our\nproposed equitable GLB can fairly balance AI's negative social and\nenvironmental costs across all the regions.",
+        "pdf_url": "http://arxiv.org/pdf/2407.05176v1",
+        "categories": [
+            "cs.CY",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "published": "2024-04-23"
+    }
+}

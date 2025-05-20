@@ -1,0 +1,30 @@
+{
+    "2002.05202v1": {
+        "title": "GLU Variants Improve Transformer",
+        "authors": [
+            "Noam Shazeer"
+        ],
+        "summary": "Gated Linear Units (arXiv:1612.08083) consist of the component-wise product\nof two linear projections, one of which is first passed through a sigmoid\nfunction. Variations on GLU are possible, using different nonlinear (or even\nlinear) functions in place of sigmoid. We test these variants in the\nfeed-forward sublayers of the Transformer (arXiv:1706.03762)\nsequence-to-sequence model, and find that some of them yield quality\nimprovements over the typically-used ReLU or GELU activations.",
+        "pdf_url": "http://arxiv.org/pdf/2002.05202v1",
+        "categories": [
+            "cs.LG",
+            "cs.NE",
+            "stat.ML"
+        ],
+        "published": "2020-02-12"
+    },
+    "2106.04572v2": {
+        "title": "Extent of frustration in the classical Kitaev-$\u0393$ model via bond anisotropy",
+        "authors": [
+            "Ahmed Rayyan",
+            "Qiang Luo",
+            "Hae-Young Kee"
+        ],
+        "summary": "In the pseudospin-$\\frac{1}{2}$ honeycomb Mott insulators with strong\nspin-orbit coupling, there are two types of bond-dependent exchange\ninteractions, named Kitaev ($K$) and $\\Gamma$, leading to strong frustration.\nWhile the ground state of the Kitaev model is a quantum spin liquid with\nfractionalized excitations, the ground state of the $\\Gamma$ model remains\ncontroversial. In particular, the phase diagram of the $K\\Gamma$ model with\nferromagnetic $K$ and antiferromagnetic $\\Gamma$ interactions has been\nintensively studied because of its relevance to candidate materials such as\n$\\alpha$-RuCl$_{3}$. Numerical studies also included the effects of tuning the\nbond strengths, i.e., $z$-bond strength different from the other bonds.\nHowever, no clear consensus on the overall phase diagram has been reached yet.\nHere we study the classical $K\\Gamma$ model with the anisotropic bond strength\nusing Monte Carlo simulations to understand the emerging phases out of\ncompetition between the two frustrated limits. We also address how the\nanisotropic bond strength affects the phase diagram and strength of quantum\nfluctuations. We found various large unit cell phases due to the competing\nfrustrations, and analyzed their intrinsic degeneracy based on the symmetry of\nthe Hamiltonian. Using the linear spin wave theory we showed that the\nanisotropic bond strength enhances quantum fluctuations in the\n$\\Gamma$-dominant regime where a small reduced moment is observed. The\nimplications of our findings in relation to the quantum model are also\ndiscussed.",
+        "pdf_url": "http://arxiv.org/pdf/2106.04572v2",
+        "categories": [
+            "cond-mat.str-el"
+        ],
+        "published": "2021-06-08"
+    }
+}

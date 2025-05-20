@@ -5,3 +5,5 @@ venv
 Agentic-RAG-with-Llamaindex/resource/metagpt.pdf
 pytorch-tutorials/data
 pytorch-tutorials/model.pth
+.DS_Store
+*.log

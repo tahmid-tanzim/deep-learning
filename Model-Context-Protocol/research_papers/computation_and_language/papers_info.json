@@ -1,0 +1,70 @@
+{
+    "2301.04788v1": {
+        "title": "Language Cognition and Language Computation -- Human and Machine Language Understanding",
+        "authors": [
+            "Shaonan Wang",
+            "Nai Ding",
+            "Nan Lin",
+            "Jiajun Zhang",
+            "Chengqing Zong"
+        ],
+        "summary": "Language understanding is a key scientific issue in the fields of cognitive\nand computer science. However, the two disciplines differ substantially in the\nspecific research questions. Cognitive science focuses on analyzing the\nspecific mechanism of the brain and investigating the brain's response to\nlanguage; few studies have examined the brain's language system as a whole. By\ncontrast, computer scientists focus on the efficiency of practical applications\nwhen choosing research questions but may ignore the most essential laws of\nlanguage. Given these differences, can a combination of the disciplines offer\nnew insights for building intelligent language models and studying language\ncognitive mechanisms? In the following text, we first review the research\nquestions, history, and methods of language understanding in cognitive and\ncomputer science, focusing on the current progress and challenges. We then\ncompare and contrast the research of language understanding in cognitive and\ncomputer sciences. Finally, we review existing work that combines insights from\nlanguage cognition and language computation and offer prospects for future\ndevelopment trends.",
+        "pdf_url": "http://arxiv.org/pdf/2301.04788v1",
+        "categories": [
+            "cs.CL"
+        ],
+        "published": "2023-01-12"
+    },
+    "cmp-lg/9507013v1": {
+        "title": "Indexed Languages and Unification Grammars",
+        "authors": [
+            "Tore Burheim"
+        ],
+        "summary": "Indexed languages are interesting in computational linguistics because they\nare the least class of languages in the Chomsky hierarchy that has not been\nshown not to be adequate to describe the string set of natural language\nsentences. We here define a class of unification grammars that exactly describe\nthe class of indexed languages.",
+        "pdf_url": "http://arxiv.org/pdf/cmp-lg/9507013v1",
+        "categories": [
+            "cmp-lg",
+            "cs.CL"
+        ],
+        "published": "1995-07-24"
+    },
+    "0801.1415v1": {
+        "title": "The emerging field of language dynamics",
+        "authors": [
+            "S. Wichmann"
+        ],
+        "summary": "A simple review by a linguist, citing many articles by physicists:\nQuantitative methods, agent-based computer simulations, language dynamics,\nlanguage typology, historical linguistics",
+        "pdf_url": "http://arxiv.org/pdf/0801.1415v1",
+        "categories": [
+            "cs.CL",
+            "physics.soc-ph"
+        ],
+        "published": "2008-01-09"
+    },
+    "1612.07486v2": {
+        "title": "Continuous multilinguality with language vectors",
+        "authors": [
+            "Robert \u00d6stling",
+            "J\u00f6rg Tiedemann"
+        ],
+        "summary": "Most existing models for multilingual natural language processing (NLP) treat\nlanguage as a discrete category, and make predictions for either one language\nor the other. In contrast, we propose using continuous vector representations\nof language. We show that these can be learned efficiently with a\ncharacter-based neural language model, and used to improve inference about\nlanguage varieties not seen during training. In experiments with 1303 Bible\ntranslations into 990 different languages, we empirically explore the capacity\nof multilingual language models, and also show that the language vectors\ncapture genetic relationships between languages.",
+        "pdf_url": "http://arxiv.org/pdf/1612.07486v2",
+        "categories": [
+            "cs.CL"
+        ],
+        "published": "2016-12-22"
+    },
+    "1604.08561v1": {
+        "title": "Comparing Fifty Natural Languages and Twelve Genetic Languages Using Word Embedding Language Divergence (WELD) as a Quantitative Measure of Language Distance",
+        "authors": [
+            "Ehsaneddin Asgari",
+            "Mohammad R. K. Mofrad"
+        ],
+        "summary": "We introduce a new measure of distance between languages based on word\nembedding, called word embedding language divergence (WELD). WELD is defined as\ndivergence between unified similarity distribution of words between languages.\nUsing such a measure, we perform language comparison for fifty natural\nlanguages and twelve genetic languages. Our natural language dataset is a\ncollection of sentence-aligned parallel corpora from bible translations for\nfifty languages spanning a variety of language families. Although we use\nparallel corpora, which guarantees having the same content in all languages,\ninterestingly in many cases languages within the same family cluster together.\nIn addition to natural languages, we perform language comparison for the coding\nregions in the genomes of 12 different organisms (4 plants, 6 animals, and two\nhuman subjects). Our result confirms a significant high-level difference in the\ngenetic language model of humans/animals versus plants. The proposed method is\na step toward defining a quantitative measure of similarity between languages,\nwith applications in languages classification, genre identification, dialect\nidentification, and evaluation of translations.",
+        "pdf_url": "http://arxiv.org/pdf/1604.08561v1",
+        "categories": [
+            "cs.CL"
+        ],
+        "published": "2016-04-28"
+    }
+}

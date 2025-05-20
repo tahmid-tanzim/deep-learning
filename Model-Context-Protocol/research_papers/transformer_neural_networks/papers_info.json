@@ -1,0 +1,78 @@
+{
+    "1803.09356v1": {
+        "title": "Neural Nets via Forward State Transformation and Backward Loss Transformation",
+        "authors": [
+            "Bart Jacobs",
+            "David Sprunger"
+        ],
+        "summary": "This article studies (multilayer perceptron) neural networks with an emphasis\non the transformations involved --- both forward and backward --- in order to\ndevelop a semantical/logical perspective that is in line with standard program\nsemantics. The common two-pass neural network training algorithms make this\nviewpoint particularly fitting. In the forward direction, neural networks act\nas state transformers. In the reverse direction, however, neural networks\nchange losses of outputs to losses of inputs, thereby acting like a\n(real-valued) predicate transformer. In this way, backpropagation is functorial\nby construction, as shown earlier in recent other work. We illustrate this\nperspective by training a simple instance of a neural network.",
+        "pdf_url": "http://arxiv.org/pdf/1803.09356v1",
+        "categories": [
+            "cs.NE",
+            "cs.LG",
+            "92B20 (Primary) 18C50 (Secondary)",
+            "C.1.3; F.3.2"
+        ],
+        "published": "2018-03-25"
+    },
+    "1907.02220v1": {
+        "title": "Neural Networks, Hypersurfaces, and Radon Transforms",
+        "authors": [
+            "Soheil Kolouri",
+            "Xuwang Yin",
+            "Gustavo K. Rohde"
+        ],
+        "summary": "Connections between integration along hypersufaces, Radon transforms, and\nneural networks are exploited to highlight an integral geometric mathematical\ninterpretation of neural networks. By analyzing the properties of neural\nnetworks as operators on probability distributions for observed data, we show\nthat the distribution of outputs for any node in a neural network can be\ninterpreted as a nonlinear projection along hypersurfaces defined by level\nsurfaces over the input data space. We utilize these descriptions to provide\nnew interpretation for phenomena such as nonlinearity, pooling, activation\nfunctions, and adversarial examples in neural network-based learning problems.",
+        "pdf_url": "http://arxiv.org/pdf/1907.02220v1",
+        "categories": [
+            "stat.ML",
+            "cs.LG"
+        ],
+        "published": "2019-07-04"
+    },
+    "2112.12345v1": {
+        "title": "Revisiting Transformation Invariant Geometric Deep Learning: Are Initial Representations All You Need?",
+        "authors": [
+            "Ziwei Zhang",
+            "Xin Wang",
+            "Zeyang Zhang",
+            "Peng Cui",
+            "Wenwu Zhu"
+        ],
+        "summary": "Geometric deep learning, i.e., designing neural networks to handle the\nubiquitous geometric data such as point clouds and graphs, have achieved great\nsuccesses in the last decade. One critical inductive bias is that the model can\nmaintain invariance towards various transformations such as translation,\nrotation, and scaling. The existing graph neural network (GNN) approaches can\nonly maintain permutation-invariance, failing to guarantee invariance with\nrespect to other transformations. Besides GNNs, other works design\nsophisticated transformation-invariant layers, which are computationally\nexpensive and difficult to be extended. To solve this problem, we revisit why\nthe existing neural networks cannot maintain transformation invariance when\nhandling geometric data. Our findings show that transformation-invariant and\ndistance-preserving initial representations are sufficient to achieve\ntransformation invariance rather than needing sophisticated neural layer\ndesigns. Motivated by these findings, we propose Transformation Invariant\nNeural Networks (TinvNN), a straightforward and general framework for geometric\ndata. Specifically, we realize transformation-invariant and distance-preserving\ninitial point representations by modifying multi-dimensional scaling before\nfeeding the representations into neural networks. We prove that TinvNN can\nstrictly guarantee transformation invariance, being general and flexible enough\nto be combined with the existing neural networks. Extensive experimental\nresults on point cloud analysis and combinatorial optimization demonstrate the\neffectiveness and general applicability of our proposed method. Based on the\nexperimental results, we advocate that TinvNN should be considered a new\nstarting point and an essential baseline for further studies of\ntransformation-invariant geometric deep learning.",
+        "pdf_url": "http://arxiv.org/pdf/2112.12345v1",
+        "categories": [
+            "cs.CV",
+            "cs.LG"
+        ],
+        "published": "2021-12-23"
+    },
+    "2208.07929v2": {
+        "title": "ViT-ReT: Vision and Recurrent Transformer Neural Networks for Human Activity Recognition in Videos",
+        "authors": [
+            "James Wensel",
+            "Hayat Ullah",
+            "Arslan Munir"
+        ],
+        "summary": "Human activity recognition is an emerging and important area in computer\nvision which seeks to determine the activity an individual or group of\nindividuals are performing. The applications of this field ranges from\ngenerating highlight videos in sports, to intelligent surveillance and gesture\nrecognition. Most activity recognition systems rely on a combination of\nconvolutional neural networks (CNNs) to perform feature extraction from the\ndata and recurrent neural networks (RNNs) to determine the time dependent\nnature of the data. This paper proposes and designs two transformer neural\nnetworks for human activity recognition: a recurrent transformer (ReT), a\nspecialized neural network used to make predictions on sequences of data, as\nwell as a vision transformer (ViT), a transformer optimized for extracting\nsalient features from images, to improve speed and scalability of activity\nrecognition. We have provided an extensive comparison of the proposed\ntransformer neural networks with the contemporary CNN and RNN-based human\nactivity recognition models in terms of speed and accuracy.",
+        "pdf_url": "http://arxiv.org/pdf/2208.07929v2",
+        "categories": [
+            "cs.CV"
+        ],
+        "published": "2022-08-16"
+    },
+    "2109.10317v2": {
+        "title": "Introduction to Neural Network Verification",
+        "authors": [
+            "Aws Albarghouthi"
+        ],
+        "summary": "Deep learning has transformed the way we think of software and what it can\ndo. But deep neural networks are fragile and their behaviors are often\nsurprising. In many settings, we need to provide formal guarantees on the\nsafety, security, correctness, or robustness of neural networks. This book\ncovers foundational ideas from formal verification and their adaptation to\nreasoning about neural networks and deep learning.",
+        "pdf_url": "http://arxiv.org/pdf/2109.10317v2",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.PL"
+        ],
+        "published": "2021-09-21"
+    }
+}

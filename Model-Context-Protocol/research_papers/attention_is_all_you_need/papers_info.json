@@ -1,0 +1,77 @@
+{
+    "2407.15516v1": {
+        "title": "Attention Is All You Need But You Don't Need All Of It For Inference of Large Language Models",
+        "authors": [
+            "Georgy Tyukin",
+            "Gbetondji J-S Dovonon",
+            "Jean Kaddour",
+            "Pasquale Minervini"
+        ],
+        "summary": "The inference demand for LLMs has skyrocketed in recent months, and serving\nmodels with low latencies remains challenging due to the quadratic input length\ncomplexity of the attention layers. In this work, we investigate the effect of\ndropping MLP and attention layers at inference time on the performance of\nLlama-v2 models. We find that dropping dreeper attention layers only marginally\ndecreases performance but leads to the best speedups alongside dropping entire\nlayers. For example, removing 33\\% of attention layers in a 13B Llama2 model\nresults in a 1.8\\% drop in average performance over the OpenLLM benchmark. We\nalso observe that skipping layers except the latter layers reduces performances\nfor more layers skipped, except for skipping the attention layers.",
+        "pdf_url": "http://arxiv.org/pdf/2407.15516v1",
+        "categories": [
+            "cs.LG",
+            "cs.CL"
+        ],
+        "published": "2024-07-22"
+    },
+    "2107.08000v1": {
+        "title": "All the attention you need: Global-local, spatial-channel attention for image retrieval",
+        "authors": [
+            "Chull Hwan Song",
+            "Hye Joo Han",
+            "Yannis Avrithis"
+        ],
+        "summary": "We address representation learning for large-scale instance-level image\nretrieval. Apart from backbone, training pipelines and loss functions, popular\napproaches have focused on different spatial pooling and attention mechanisms,\nwhich are at the core of learning a powerful global image representation. There\nare different forms of attention according to the interaction of elements of\nthe feature tensor (local and global) and the dimensions where it is applied\n(spatial and channel). Unfortunately, each study addresses only one or two\nforms of attention and applies it to different problems like classification,\ndetection or retrieval.\n  We present global-local attention module (GLAM), which is attached at the end\nof a backbone network and incorporates all four forms of attention: local and\nglobal, spatial and channel. We obtain a new feature tensor and, by spatial\npooling, we learn a powerful embedding for image retrieval. Focusing on global\ndescriptors, we provide empirical evidence of the interaction of all forms of\nattention and improve the state of the art on standard benchmarks.",
+        "pdf_url": "http://arxiv.org/pdf/2107.08000v1",
+        "categories": [
+            "cs.CV"
+        ],
+        "published": "2021-07-16"
+    },
+    "2306.01926v1": {
+        "title": "RITA: Group Attention is All You Need for Timeseries Analytics",
+        "authors": [
+            "Jiaming Liang",
+            "Lei Cao",
+            "Samuel Madden",
+            "Zachary Ives",
+            "Guoliang Li"
+        ],
+        "summary": "Timeseries analytics is of great importance in many real-world applications.\nRecently, the Transformer model, popular in natural language processing, has\nbeen leveraged to learn high quality feature embeddings from timeseries, core\nto the performance of various timeseries analytics tasks. However, the\nquadratic time and space complexities limit Transformers' scalability,\nespecially for long timeseries. To address these issues, we develop a\ntimeseries analytics tool, RITA, which uses a novel attention mechanism, named\ngroup attention, to address this scalability issue. Group attention dynamically\nclusters the objects based on their similarity into a small number of groups\nand approximately computes the attention at the coarse group granularity. It\nthus significantly reduces the time and space complexity, yet provides a\ntheoretical guarantee on the quality of the computed attention. The dynamic\nscheduler of RITA continuously adapts the number of groups and the batch size\nin the training process, ensuring group attention always uses the fewest groups\nneeded to meet the approximation quality requirement. Extensive experiments on\nvarious timeseries datasets and analytics tasks demonstrate that RITA\noutperforms the state-of-the-art in accuracy and is significantly faster --\nwith speedups of up to 63X.",
+        "pdf_url": "http://arxiv.org/pdf/2306.01926v1",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.DB"
+        ],
+        "published": "2023-06-02"
+    },
+    "2112.05993v1": {
+        "title": "Object Counting: You Only Need to Look at One",
+        "authors": [
+            "Hui Lin",
+            "Xiaopeng Hong",
+            "Yabin Wang"
+        ],
+        "summary": "This paper aims to tackle the challenging task of one-shot object counting.\nGiven an image containing novel, previously unseen category objects, the goal\nof the task is to count all instances in the desired category with only one\nsupporting bounding box example. To this end, we propose a counting model by\nwhich you only need to Look At One instance (LaoNet). First, a feature\ncorrelation module combines the Self-Attention and Correlative-Attention\nmodules to learn both inner-relations and inter-relations. It enables the\nnetwork to be robust to the inconsistency of rotations and sizes among\ndifferent instances. Second, a Scale Aggregation mechanism is designed to help\nextract features with different scale information. Compared with existing\nfew-shot counting methods, LaoNet achieves state-of-the-art results while\nlearning with a high convergence speed. The code will be available soon.",
+        "pdf_url": "http://arxiv.org/pdf/2112.05993v1",
+        "categories": [
+            "cs.CV"
+        ],
+        "published": "2021-12-11"
+    },
+    "2501.09166v1": {
+        "title": "Attention is All You Need Until You Need Retention",
+        "authors": [
+            "M. Murat Yaslioglu"
+        ],
+        "summary": "This work introduces a novel Retention Layer mechanism for Transformer based\narchitectures, addressing their inherent lack of intrinsic retention\ncapabilities. Unlike human cognition, which can encode and dynamically recall\nsymbolic templates, Generative Pretrained Transformers rely solely on fixed\npretrained weights and ephemeral context windows, limiting their adaptability.\nThe proposed Retention Layer incorporates a persistent memory module capable of\nreal time data population, dynamic recall, and guided output generation. This\nenhancement allows models to store, update, and reuse observed patterns across\nsessions, enabling incremental learning and bridging the gap between static\npretraining and dynamic, context sensitive adaptation. The Retention Layer\ndesign parallels social learning processes, encompassing attention, retention,\nreproduction, and motivation stages. Technically, it integrates a memory\nattention mechanism and episodic buffers to manage memory scalability, mitigate\noverfitting, and ensure efficient recall. Applications span adaptive personal\nassistants, real time fraud detection, autonomous robotics, content moderation,\nand healthcare diagnostics. In each domain, the retention mechanism enables\nsystems to learn incrementally, personalize outputs, and respond to evolving\nreal world challenges effectively. By emulating key aspects of human learning,\nthis retention enhanced architecture fosters a more fluid and responsive AI\nparadigm, paving the way for dynamic, session aware models that extend the\ncapabilities of traditional Transformers into domains requiring continual\nadaptation.",
+        "pdf_url": "http://arxiv.org/pdf/2501.09166v1",
+        "categories": [
+            "cs.LG",
+            "cs.AI"
+        ],
+        "published": "2025-01-15"
+    }
+}
