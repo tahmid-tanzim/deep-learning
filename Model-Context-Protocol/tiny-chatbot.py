@@ -22,6 +22,15 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
     Returns:
         List of paper IDs found in the search
     """
+    file_path = os.path.join(RESEARCH_PAPER_DIR, topic.lower().replace(" ", "_"), "papers_info.json")
+    if os.path.exists(file_path):
+        print(f"Research Papers for `{topic}` already exist in {file_path}")
+        try:
+            with open(file_path, "r") as json_file:
+                papers_info = json.load(json_file)
+                return list(papers_info.keys())
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            print(f"Error loading research papers info from {file_path}: {e}")
     
     # Use arxiv to find the papers 
     client = arxiv.Client()
@@ -36,38 +45,28 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
     papers = client.results(search)
     
     # Create directory for this topic
-    path = os.path.join(RESEARCH_PAPER_DIR, topic.lower().replace(" ", "_"))
-    os.makedirs(path, exist_ok=True)
+    topic_path = os.path.join(RESEARCH_PAPER_DIR, topic.lower().replace(" ", "_"))
+    os.makedirs(topic_path, exist_ok=True)
+    file_path = os.path.join(topic_path, "papers_info.json")
     
-    file_path = os.path.join(path, "papers_info.json")
-
-    # Try to load existing papers info
-    try:
-        with open(file_path, "r") as json_file:
-            papers_info = json.load(json_file)
-    except (FileNotFoundError, json.JSONDecodeError):
-        papers_info = {}
-
     # Process each paper and add to papers_info  
-    paper_ids = []
+    papers_info = {}
     for paper in papers:
-        paper_ids.append(paper.get_short_id())
-        paper_info = {
+        paper_id = paper.get_short_id()
+        papers_info[paper_id] = {
             'title': paper.title,
             'authors': [author.name for author in paper.authors],
             'summary': paper.summary,
             'pdf_url': paper.pdf_url,
-            'categories': paper.category,
+            'categories': paper.categories,
             'published': str(paper.published.date())
         }
-        papers_info[paper.get_short_id()] = paper_info
     
     # Save updated papers_info to json file
     with open(file_path, "w") as json_file:
-        json.dump(papers_info, json_file, indent=2)
-    
+        json.dump(papers_info, json_file, indent=4)
     print(f"Results are saved in: {file_path}")
     
-    return paper_ids
+    return list(papers_info.keys())
 
-print(search_papers("machine learning"))
+print(search_papers("transformer"))
