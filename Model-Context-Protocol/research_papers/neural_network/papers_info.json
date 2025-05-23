@@ -1,0 +1,150 @@
+{
+    "2304.05133v2": {
+        "title": "Lecture Notes: Neural Network Architectures",
+        "authors": [
+            "Evelyn Herberg"
+        ],
+        "summary": "These lecture notes provide an overview of Neural Network architectures from\na mathematical point of view. Especially, Machine Learning with Neural Networks\nis seen as an optimization problem. Covered are an introduction to Neural\nNetworks and the following architectures: Feedforward Neural Network,\nConvolutional Neural Network, ResNet, and Recurrent Neural Network.",
+        "pdf_url": "http://arxiv.org/pdf/2304.05133v2",
+        "categories": [
+            "cs.LG",
+            "math.OC",
+            "68T07"
+        ],
+        "published": "2023-04-11"
+    },
+    "cs/0504056v1": {
+        "title": "Self-Organizing Multilayered Neural Networks of Optimal Complexity",
+        "authors": [
+            "V. Schetinin"
+        ],
+        "summary": "The principles of self-organizing the neural networks of optimal complexity\nis considered under the unrepresentative learning set. The method of\nself-organizing the multi-layered neural networks is offered and used to train\nthe logical neural networks which were applied to the medical diagnostics.",
+        "pdf_url": "http://arxiv.org/pdf/cs/0504056v1",
+        "categories": [
+            "cs.NE",
+            "cs.AI"
+        ],
+        "published": "2005-04-13"
+    },
+    "1911.05640v2": {
+        "title": "Neural Network Processing Neural Networks: An efficient way to learn higher order functions",
+        "authors": [
+            "Firat Tuna"
+        ],
+        "summary": "Functions are rich in meaning and can be interpreted in a variety of ways.\nNeural networks were proven to be capable of approximating a large class of\nfunctions[1]. In this paper, we propose a new class of neural networks called\n\"Neural Network Processing Neural Networks\" (NNPNNs), which inputs neural\nnetworks and numerical values, instead of just numerical values. Thus enabling\nneural networks to represent and process rich structures.",
+        "pdf_url": "http://arxiv.org/pdf/1911.05640v2",
+        "categories": [
+            "cs.LG",
+            "cs.NE"
+        ],
+        "published": "2019-11-06"
+    },
+    "2304.13812v1": {
+        "title": "Guaranteed Quantization Error Computation for Neural Network Model Compression",
+        "authors": [
+            "Wesley Cooke",
+            "Zihao Mo",
+            "Weiming Xiang"
+        ],
+        "summary": "Neural network model compression techniques can address the computation issue\nof deep neural networks on embedded devices in industrial systems. The\nguaranteed output error computation problem for neural network compression with\nquantization is addressed in this paper. A merged neural network is built from\na feedforward neural network and its quantized version to produce the exact\noutput difference between two neural networks. Then, optimization-based methods\nand reachability analysis methods are applied to the merged neural network to\ncompute the guaranteed quantization error. Finally, a numerical example is\nproposed to validate the applicability and effectiveness of the proposed\napproach.",
+        "pdf_url": "http://arxiv.org/pdf/2304.13812v1",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.NE"
+        ],
+        "published": "2023-04-26"
+    },
+    "2007.06559v2": {
+        "title": "Graph Structure of Neural Networks",
+        "authors": [
+            "Jiaxuan You",
+            "Jure Leskovec",
+            "Kaiming He",
+            "Saining Xie"
+        ],
+        "summary": "Neural networks are often represented as graphs of connections between\nneurons. However, despite their wide use, there is currently little\nunderstanding of the relationship between the graph structure of the neural\nnetwork and its predictive performance. Here we systematically investigate how\ndoes the graph structure of neural networks affect their predictive\nperformance. To this end, we develop a novel graph-based representation of\nneural networks called relational graph, where layers of neural network\ncomputation correspond to rounds of message exchange along the graph structure.\nUsing this representation we show that: (1) a \"sweet spot\" of relational graphs\nleads to neural networks with significantly improved predictive performance;\n(2) neural network's performance is approximately a smooth function of the\nclustering coefficient and average path length of its relational graph; (3) our\nfindings are consistent across many different tasks and datasets; (4) the sweet\nspot can be identified efficiently; (5) top-performing neural networks have\ngraph structure surprisingly similar to those of real biological neural\nnetworks. Our work opens new directions for the design of neural architectures\nand the understanding on neural networks in general.",
+        "pdf_url": "http://arxiv.org/pdf/2007.06559v2",
+        "categories": [
+            "cs.LG",
+            "cs.CV",
+            "cs.SI",
+            "stat.ML"
+        ],
+        "published": "2020-07-13"
+    },
+    "2408.04747v1": {
+        "title": "Hybrid Quantum-Classical Neural Networks for Downlink Beamforming Optimization",
+        "authors": [
+            "Juping Zhang",
+            "Gan Zheng",
+            "Toshiaki Koike-Akino",
+            "Kai-Kit Wong",
+            "Fraser Burton"
+        ],
+        "summary": "This paper investigates quantum machine learning to optimize the beamforming\nin a multiuser multiple-input single-output downlink system. We aim to combine\nthe power of quantum neural networks and the success of classical deep neural\nnetworks to enhance the learning performance. Specifically, we propose two\nhybrid quantum-classical neural networks to maximize the sum rate of a downlink\nsystem. The first one proposes a quantum neural network employing parameterized\nquantum circuits that follows a classical convolutional neural network. The\nclassical neural network can be jointly trained with the quantum neural network\nor pre-trained leading to a fine-tuning transfer learning method. The second\none designs a quantum convolutional neural network to better extract features\nfollowed by a classical deep neural network. Our results demonstrate the\nfeasibility of the proposed hybrid neural networks, and reveal that the first\nmethod can achieve similar sum rate performance compared to a benchmark\nclassical neural network with significantly less training parameters; while the\nsecond method can achieve higher sum rate especially in presence of many users\nstill with less training parameters. The robustness of the proposed methods is\nverified using both software simulators and hardware emulators considering\nnoisy intermediate-scale quantum devices.",
+        "pdf_url": "http://arxiv.org/pdf/2408.04747v1",
+        "categories": [
+            "cs.IT",
+            "math.IT"
+        ],
+        "published": "2024-08-08"
+    },
+    "1804.03313v1": {
+        "title": "Cortex Neural Network: learning with Neural Network groups",
+        "authors": [
+            "Liyao Gao"
+        ],
+        "summary": "Neural Network has been successfully applied to many real-world problems,\nsuch as image recognition and machine translation. However, for the current\narchitecture of neural networks, it is hard to perform complex cognitive tasks,\nfor example, to process the image and audio inputs together. Cortex, as an\nimportant architecture in the brain, is important for animals to perform the\ncomplex cognitive task. We view the architecture of Cortex in the brain as a\nmissing part in the design of the current artificial neural network. In this\npaper, we purpose Cortex Neural Network (CrtxNN). The Cortex Neural Network is\nan upper architecture of neural networks which motivated from cerebral cortex\nin the brain to handle different tasks in the same learning system. It is able\nto identify different tasks and solve them with different methods. In our\nimplementation, the Cortex Neural Network is able to process different\ncognitive tasks and perform reflection to get a higher accuracy. We provide a\nseries of experiments to examine the capability of the cortex architecture on\ntraditional neural networks. Our experiments proved its ability on the Cortex\nNeural Network can reach accuracy by 98.32% on MNIST and 62% on CIFAR10 at the\nsame time, which can promisingly reduce the loss by 40%.",
+        "pdf_url": "http://arxiv.org/pdf/1804.03313v1",
+        "categories": [
+            "cs.NE",
+            "cs.CV",
+            "cs.LG"
+        ],
+        "published": "2018-04-10"
+    },
+    "cs/0608073v1": {
+        "title": "Parametrical Neural Networks and Some Other Similar Architectures",
+        "authors": [
+            "Leonid B. Litinskii"
+        ],
+        "summary": "A review of works on associative neural networks accomplished during last\nfour years in the Institute of Optical Neural Technologies RAS is given. The\npresentation is based on description of parametrical neural networks (PNN). For\ntoday PNN have record recognizing characteristics (storage capacity, noise\nimmunity and speed of operation). Presentation of basic ideas and principles is\naccentuated.",
+        "pdf_url": "http://arxiv.org/pdf/cs/0608073v1",
+        "categories": [
+            "cs.CV",
+            "cs.NE"
+        ],
+        "published": "2006-08-18"
+    },
+    "2006.02909v1": {
+        "title": "Assessing Intelligence in Artificial Neural Networks",
+        "authors": [
+            "Nicholas J. Schaub",
+            "Nathan Hotaling"
+        ],
+        "summary": "The purpose of this work was to develop of metrics to assess network\narchitectures that balance neural network size and task performance. To this\nend, the concept of neural efficiency is introduced to measure neural layer\nutilization, and a second metric called artificial intelligence quotient (aIQ)\nwas created to balance neural network performance and neural network\nefficiency. To study aIQ and neural efficiency, two simple neural networks were\ntrained on MNIST: a fully connected network (LeNet-300-100) and a convolutional\nneural network (LeNet-5). The LeNet-5 network with the highest aIQ was 2.32%\nless accurate but contained 30,912 times fewer parameters than the highest\naccuracy network. Both batch normalization and dropout layers were found to\nincrease neural efficiency. Finally, high aIQ networks are shown to be\nmemorization and overtraining resistant, capable of learning proper digit\nclassification with an accuracy of 92.51% even when 75% of the class labels are\nrandomized. These results demonstrate the utility of aIQ and neural efficiency\nas metrics for balancing network performance and size.",
+        "pdf_url": "http://arxiv.org/pdf/2006.02909v1",
+        "categories": [
+            "cs.LG",
+            "cs.AI",
+            "cs.CV"
+        ],
+        "published": "2020-06-03"
+    },
+    "2307.06287v1": {
+        "title": "Rational Neural Network Controllers",
+        "authors": [
+            "Matthew Newton",
+            "Antonis Papachristodoulou"
+        ],
+        "summary": "Neural networks have shown great success in many machine learning related\ntasks, due to their ability to act as general function approximators. Recent\nwork has demonstrated the effectiveness of neural networks in control systems\n(known as neural feedback loops), most notably by using a neural network as a\ncontroller. However, one of the big challenges of this approach is that neural\nnetworks have been shown to be sensitive to adversarial attacks. This means\nthat, unless they are designed properly, they are not an ideal candidate for\ncontrollers due to issues with robustness and uncertainty, which are pivotal\naspects of control systems. There has been initial work on robustness to both\nanalyse and design dynamical systems with neural network controllers. However,\none prominent issue with these methods is that they use existing neural network\narchitectures tailored for traditional machine learning tasks. These structures\nmay not be appropriate for neural network controllers and it is important to\nconsider alternative architectures. This paper considers rational neural\nnetworks and presents novel rational activation functions, which can be used\neffectively in robustness problems for neural feedback loops. Rational\nactivation functions are replaced by a general rational neural network\nstructure, which is convex in the neural network's parameters. A method is\nproposed to recover a stabilising controller from a Sum of Squares feasibility\ntest. This approach is then applied to a refined rational neural network which\nis more compatible with Sum of Squares programming. Numerical examples show\nthat this method can successfully recover stabilising rational neural network\ncontrollers for neural feedback loops with non-linear plants with noise and\nparametric uncertainty.",
+        "pdf_url": "http://arxiv.org/pdf/2307.06287v1",
+        "categories": [
+            "eess.SY",
+            "cs.LG",
+            "cs.SY"
+        ],
+        "published": "2023-07-12"
+    }
+}
