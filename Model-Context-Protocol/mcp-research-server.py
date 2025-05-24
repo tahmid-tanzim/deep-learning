@@ -21,6 +21,7 @@ logging.basicConfig(
 # Initialize FastMCP server
 mcp = FastMCP("research_mcp_server")
 
+
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> List[str]:
     """
@@ -34,7 +35,7 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
         List of paper IDs found in the search
     """
     logging.info(f"Searching papers for topic: {topic} with max_results: {max_results}")
-    
+
     # Check for existing papers
     file_path = os.path.join(RESEARCH_PAPER_DIR, topic.lower().replace(" ", "_"), "papers_info.json")
     if os.path.exists(file_path):
@@ -47,7 +48,7 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
                 return paper_ids
         except (FileNotFoundError, json.JSONDecodeError) as e:
             logging.error(f"Error loading research papers info from {file_path}: {e}")
-    
+
     # Search arXiv for new papers
     logging.info("No existing papers found, searching arXiv...")
     client = arxiv.Client()
@@ -59,12 +60,12 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
             sort_by=arxiv.SortCriterion.Relevance
         )
         papers = client.results(search)
-        
+
         # Create directory for this topic
         topic_path = os.path.join(RESEARCH_PAPER_DIR, topic.lower().replace(" ", "_"))
         os.makedirs(topic_path, exist_ok=True)
         file_path = os.path.join(topic_path, "papers_info.json")
-        
+
         # Process and store paper information
         papers_info = {}
         for paper in papers:
@@ -78,16 +79,17 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
                 'published': str(paper.published.date())
             }
             logging.debug(f"Processed paper: {paper_id} - {paper.title}")
-        
+
         # Save papers information
         with open(file_path, "w") as json_file:
             json.dump(papers_info, json_file, indent=4)
         logging.info(f"Successfully saved {len(papers_info)} papers to {file_path}")
-        
+
         return list(papers_info.keys())
     except Exception as e:
         logging.error(f"Error during arXiv search: {e}")
         raise
+
 
 @mcp.tool()
 def extract_info(paper_id: str) -> str:
@@ -101,7 +103,7 @@ def extract_info(paper_id: str) -> str:
         JSON string with paper information if found, error message if not found
     """
     logging.info(f"Extracting information for paper ID: {paper_id}")
- 
+
     # Search in existing topic directories
     for topic in os.listdir(RESEARCH_PAPER_DIR):
         logging.debug(f"Searching paper_id {paper_id} in topic {topic}")
@@ -118,7 +120,7 @@ def extract_info(paper_id: str) -> str:
                 except (FileNotFoundError, json.JSONDecodeError) as e:
                     logging.error(f"Error reading {file_path}: {str(e)}")
                     continue
-    
+
     # Search arXiv if not found locally
     logging.info(f"Paper {paper_id} not found in local storage, searching arXiv...")
     client = arxiv.Client()
@@ -140,11 +142,11 @@ def extract_info(paper_id: str) -> str:
                 'published': str(paper.published.date())
             }
         }
-        
+
         # Store in miscellaneous directory
         misc_dir = os.path.join(RESEARCH_PAPER_DIR, "miscellaneous")
         os.makedirs(misc_dir, exist_ok=True)
-        
+
         # Read existing papers info
         file_path = os.path.join(misc_dir, "papers_info.json")
         existing_papers = {}
@@ -156,7 +158,7 @@ def extract_info(paper_id: str) -> str:
             except (FileNotFoundError, json.JSONDecodeError) as e:
                 logging.error(f"Error reading existing papers from {file_path}: {e}")
                 existing_papers = {}
-        
+
         # Update and save papers info
         existing_papers.update(new_papers_info)
         with open(file_path, "w") as json_file:
@@ -167,6 +169,7 @@ def extract_info(paper_id: str) -> str:
         error_msg = f"There's no saved information related to paper {paper_id}. Error: {e}"
         logging.error(error_msg)
         return error_msg
+
 
 if __name__ == "__main__":
     # Initialize and run the server
