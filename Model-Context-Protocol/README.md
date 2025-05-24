@@ -20,5 +20,5 @@ nvm use 18
 - Run MCP Client with stdio server
 `uv run Model-Context-Protocol/mcp-chatbot.py`
 
-- Run MCP Client with multiple resource server
-`uv run Model-Context-Protocol/mcp-chatbot-connected-to-resource-server.py`
+- Run MCP Client with multiple reference server
+`uv run Model-Context-Protocol/mcp-chatbot-connected-to-reference-server.py`
