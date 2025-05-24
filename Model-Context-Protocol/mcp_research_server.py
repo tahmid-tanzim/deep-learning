@@ -2,13 +2,13 @@ import os
 import json
 import arxiv
 import logging
-from typing import List, Dict, Any
+from typing import List
 from mcp.server.fastmcp import FastMCP
 
+# Configure logging
 current_dir_path = os.path.dirname(os.path.realpath(__file__))
 RESEARCH_PAPER_DIR = os.path.join(current_dir_path, "research_papers")
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -35,6 +35,7 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
     """
     logging.info(f"Searching papers for topic: {topic} with max_results: {max_results}")
     
+    # Check for existing papers
     file_path = os.path.join(RESEARCH_PAPER_DIR, topic.lower().replace(" ", "_"), "papers_info.json")
     if os.path.exists(file_path):
         logging.info(f"Found existing research papers for topic '{topic}' in {file_path}")
@@ -47,6 +48,7 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
         except (FileNotFoundError, json.JSONDecodeError) as e:
             logging.error(f"Error loading research papers info from {file_path}: {e}")
     
+    # Search arXiv for new papers
     logging.info("No existing papers found, searching arXiv...")
     client = arxiv.Client()
 
@@ -63,7 +65,7 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
         os.makedirs(topic_path, exist_ok=True)
         file_path = os.path.join(topic_path, "papers_info.json")
         
-        # Process each paper and add to papers_info  
+        # Process and store paper information
         papers_info = {}
         for paper in papers:
             paper_id = paper.get_short_id()
@@ -77,7 +79,7 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
             }
             logging.debug(f"Processed paper: {paper_id} - {paper.title}")
         
-        # Save updated papers_info to json file
+        # Save papers information
         with open(file_path, "w") as json_file:
             json.dump(papers_info, json_file, indent=4)
         logging.info(f"Successfully saved {len(papers_info)} papers to {file_path}")
@@ -100,6 +102,7 @@ def extract_info(paper_id: str) -> str:
     """
     logging.info(f"Extracting information for paper ID: {paper_id}")
  
+    # Search in existing topic directories
     for topic in os.listdir(RESEARCH_PAPER_DIR):
         logging.debug(f"Searching paper_id {paper_id} in topic {topic}")
         topic_path = os.path.join(RESEARCH_PAPER_DIR, topic)
@@ -116,6 +119,7 @@ def extract_info(paper_id: str) -> str:
                     logging.error(f"Error reading {file_path}: {str(e)}")
                     continue
     
+    # Search arXiv if not found locally
     logging.info(f"Paper {paper_id} not found in local storage, searching arXiv...")
     client = arxiv.Client()
     try:
@@ -137,11 +141,11 @@ def extract_info(paper_id: str) -> str:
             }
         }
         
-        # Create miscellaneous directory if it doesn't exist
+        # Store in miscellaneous directory
         misc_dir = os.path.join(RESEARCH_PAPER_DIR, "miscellaneous")
         os.makedirs(misc_dir, exist_ok=True)
         
-        # Read existing papers info if file exists
+        # Read existing papers info
         file_path = os.path.join(misc_dir, "papers_info.json")
         existing_papers = {}
         if os.path.exists(file_path):
@@ -153,10 +157,8 @@ def extract_info(paper_id: str) -> str:
                 logging.error(f"Error reading existing papers from {file_path}: {e}")
                 existing_papers = {}
         
-        # Update with new paper info
+        # Update and save papers info
         existing_papers.update(new_papers_info)
-        
-        # Save the updated papers info to the json file
         with open(file_path, "w") as json_file:
             json.dump(existing_papers, json_file, indent=4)
         logging.info(f"Successfully saved new paper info to {file_path}")
@@ -165,7 +167,6 @@ def extract_info(paper_id: str) -> str:
         error_msg = f"There's no saved information related to paper {paper_id}. Error: {e}"
         logging.error(error_msg)
         return error_msg
-
 
 if __name__ == "__main__":
     # Initialize and run the server
