@@ -28,15 +28,26 @@ logging.basicConfig(
 )
 
 
-class ToolFunction(TypedDict):
+class ToolChild(TypedDict):
     name: str
     description: str
     parameters: dict
 
 
-class Tool(TypedDict):
+class ToolType(TypedDict):
     type: str
-    function: ToolFunction
+    function: ToolChild
+
+
+class PromptChild(TypedDict):
+    name: str
+    description: str
+    arguments: dict
+
+
+class PromptType(TypedDict):
+    type: str
+    prompt: PromptChild
 
 
 class MCP_ChatBot:
@@ -55,8 +66,11 @@ class MCP_ChatBot:
         # self.session: ClientSession = None
         self.sessions: List[ClientSession] = []
         self.gpt_client = OpenAI(api_key=self.OPENAI_API_KEY)
-        self.available_tools: List[Tool] = []
+        self.available_tools: List[ToolType] = []
         self.tool_to_session: Dict[str, ClientSession] = {}
+        self.available_prompts: List[PromptType] = []
+        self.prompt_to_session: Dict[str, ClientSession] = {}
+        self.resource_to_session: Dict[str, ClientSession] = {}
         self.exit_stack = AsyncExitStack()
 
     @staticmethod
@@ -135,10 +149,10 @@ class MCP_ChatBot:
                 messages.append({
                     "role": "assistant",
                     "content": assistant_message.content,
-                    "tool_calls": assistant_message.tool_calls
+                    "tool_calls": assistant_message.tool_calls if hasattr(assistant_message, 'tool_calls') else None
                 })
 
-                if assistant_message.tool_calls:
+                if hasattr(assistant_message, 'tool_calls') and assistant_message.tool_calls:
                     for tool_call in assistant_message.tool_calls:
                         tool_name = tool_call.function.name
                         tool_args = json.loads(tool_call.function.arguments)
@@ -146,12 +160,14 @@ class MCP_ChatBot:
 
                         try:
                             # Call a tool
-                            session = self.tool_to_session[tool_name]  # new
+                            session = self.tool_to_session.get(tool_name)
+                            if not session:
+                                raise ValueError(f"No session found for tool {tool_name}")
+
                             result = await session.call_tool(tool_name, arguments=tool_args)
-                            # result = await self.session.call_tool(tool_name, arguments=tool_args)
 
                             # Convert CallToolResult to string before adding to messages
-                            result_str = str(result.content) if hasattr(result, 'content') else str(result)
+                            result_str = result.content if hasattr(result, 'content') else str(result)
                             messages.append({
                                 "role": "tool",
                                 "tool_call_id": tool_call.id,
@@ -177,6 +193,72 @@ class MCP_ChatBot:
                 logging.warning(f"Attempt {attempt + 1} failed: {e}")
                 continue
 
+    async def get_resource(self, resource_uri: str) -> str:
+        """Get a resource from the server."""
+        session = self.resource_to_session.get(resource_uri)
+
+        if not session and resource_uri.startswith("papers://"):
+            for uri, s in self.resource_to_session.items():
+                if uri.startswith("papers://"):
+                    session = s
+                    break
+
+        if not session:
+            error_msg = f"No session found for resource {resource_uri}"
+            logging.error(error_msg)
+            print(error_msg)
+            return
+
+        try:
+            result = await session.read_resource(uri=resource_uri)
+            if result and result.contents:
+                content = result.contents[0].text
+                logging.info(f"Resource {resource_uri} contents: {content}")
+                print(content)
+            else:
+                error_msg = f"No contents found for resource {resource_uri}"
+                logging.error(error_msg)
+                print(error_msg)
+        except Exception as e:
+            error_msg = f"Error getting resource {resource_uri}: {e}"
+            logging.error(error_msg)
+            print(error_msg)
+
+    async def list_prompts(self):
+        if not self.available_prompts:
+            logging.error("No prompts available")
+            return
+
+        for prompt in self.available_prompts:
+            logging.info(f"Prompt: {prompt['prompt']['name']}")
+            logging.info(f"Description: {prompt['prompt']['description']}")
+            if prompt['prompt']['arguments']:
+                logging.info(f"Arguments: ")
+                for arg in prompt['prompt']['arguments']:
+                    arg_name = arg.name if hasattr(arg, 'name') else arg.get('name', '')
+                    logging.info(f"  - {arg_name}")
+
+    async def execute_prompt(self, prompt_name: str, arguments: dict):
+        session = self.prompt_to_session.get(prompt_name, None)
+        if not session:
+            logging.error(f"No session found for prompt {prompt_name}")
+            return
+
+        try:
+            result = await session.get_prompt(prompt_name, arguments=arguments)
+            if result and result.messages:
+                prompt_content = result.messages[0].content
+                if isinstance(prompt_content, str):
+                    text = prompt_content
+                elif hasattr(prompt_content, 'text'):
+                    text = prompt_content.text
+                else:
+                    text = " ".join(item.text if hasattr(item, 'text') else str(item) for item in prompt_content)
+                logging.info(f"Prompt {prompt_name} \nResult: {text}")
+                await self.process_query(text)
+        except Exception as e:
+            logging.error(f"Error executing prompt {prompt_name}: {e}")
+
     async def chat_loop(self):
         """Run the main chat loop with proper message management."""
         messages = [{
@@ -184,15 +266,47 @@ class MCP_ChatBot:
             "content": "You are a helpful research assistant that can search and analyze academic papers using the available tools."
         }]
 
+        print("MCP Chatbot Started")
         print("Type your queries or 'quit' to exit.")
+        print("User @folders to list available topics")
+        print("User @<topic> to search paper in that topic")
+        print("User /prompts to list available prompts")
+        print("User /prompt <name> <arg1=value1> <arg2=value2> to execute a prompt")
         while True:
             try:
                 query = input("\nQuery: ").strip()
+                if not query:
+                    continue
                 if query.lower() == 'quit':
                     break
-
-                # Add user message
-                messages.append({'role': 'user', 'content': query})
+                if query.startswith('@'):
+                    topic = query[1:]
+                    if topic == "folders":
+                        resource_uri = "papers://folders"
+                    else:
+                        resource_uri = f"papers://{topic}"
+                    await self.get_resource(resource_uri=resource_uri)
+                    continue
+                if query.startswith('/'):
+                    parts = query.split()
+                    command = parts[0].lower()
+                    if command == '/prompts':
+                        await self.list_prompts()
+                        continue
+                    elif command == '/prompt':
+                        if len(parts) < 2:
+                            print("Usage: /prompt <name> <arg1=value1> <arg2=value2>...")
+                            continue
+                        prompt_name = parts[1]
+                        args = {}
+                        for arg in parts[2:]:
+                            if '=' in arg:
+                                key, value = arg.split('=', 1)
+                                args[key] = value
+                        await self.execute_prompt(prompt_name=prompt_name, arguments=args)
+                    else:
+                        print(f"Unknown command: {command}")
+                        continue
                 await self.process_query(messages)
                 self._debug_messages(messages)
             except KeyboardInterrupt:
@@ -200,7 +314,6 @@ class MCP_ChatBot:
                 break
             except Exception as e:
                 logging.error(f"Error in chat loop: {e}")
-                print(f"\nError: {str(e)}")
 
     async def cleanup(self):
         """Clean up all MCP sessions."""
@@ -220,24 +333,49 @@ class MCP_ChatBot:
             await session.initialize()
             self.sessions.append(session)
 
-            # Get available tools from server
-            response = await session.list_tools()
-            tools = response.tools
+            # 1. Get available tools from server
+            tool_response = await session.list_tools()
+            if tool_response.tools:
+                print(f"\nConnected to {server_name} with tools:", [t.name for t in tool_response.tools])
+                for tool in tool_response.tools:
+                    self.tool_to_session[tool.name] = session
+                    self.available_tools.append({
+                        "type": "function",
+                        "function": {
+                            "name": tool.name,
+                            "description": tool.description,
+                            "parameters": tool.inputSchema
+                        }
+                    })
 
-            print(f"\nConnected to {server_name} with tools:", [t.name for t in tools])
-
-            # Format tools for OpenAI API
-            for tool in response.tools:
-                self.tool_to_session[tool.name] = session
-                self.available_tools.append({
-                    "type": "function",
-                    "function": {
-                        "name": tool.name,
-                        "description": tool.description,
-                        "parameters": tool.inputSchema
-                    }
-                })
-
+            # 2. Get available prompts from server
+            prompt_response = await session.list_prompts()
+            if prompt_response.prompts:
+                print(f"\nConnected to {server_name} with prompts:", [p.name for p in prompt_response.prompts])
+                for prompt in prompt_response.prompts:
+                    self.prompt_to_session[prompt.name] = session
+                    self.available_prompts.append({
+                        "type": "prompt",
+                        "prompt": {
+                            "name": prompt.name,
+                            "description": prompt.description,
+                            "arguments": prompt.arguments
+                        }
+                    })
+            # 3. Get available resources from server
+            resource_response = await session.list_resources()
+            if resource_response.resources:
+                print(f"\nConnected to {server_name} with resources:", [r.name for r in resource_response.resources])
+                for resource in resource_response.resources:
+                    self.resource_to_session[str(resource.uri)] = session
+                    # self.available_resources.append({
+                    #     "type": "resource",
+                    #     "resource": {
+                    #         "name": resource.name,
+                    #         "description": resource.description,
+                    #         "arguments": resource.inputSchema
+                    #     }   
+                    # })
         except Exception as e:
             logging.error(f"Error connecting server {server_name}: {e}")
             return

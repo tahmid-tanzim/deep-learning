@@ -5,15 +5,17 @@
             "args": [
                 "-y",
                 "@modelcontextprotocol/server-filesystem",
-                "."
+                "/Users/tahmidtanzimlupin/Projects/deep-learning/Model-Context-Protocol/"
             ],
             "env": null
         },
         "research_mcp_server": {
             "command": "uv",
             "args": [
+                "--directory",
+                "/Users/tahmidtanzimlupin/Projects/deep-learning/Model-Context-Protocol/",
                 "run",
-                "Model-Context-Protocol/mcp-research-server.py"
+                "mcp-research-server.py"
             ]
         },
         "fetch": {
