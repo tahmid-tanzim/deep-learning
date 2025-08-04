@@ -7,3 +7,4 @@ pytorch-tutorials/data
 pytorch-tutorials/model.pth
 .DS_Store
 *.log
+neural-networks/.ipynb_checkpoints/*.ipynb
